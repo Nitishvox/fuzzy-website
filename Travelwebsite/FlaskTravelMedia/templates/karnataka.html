@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }} - South India Explorer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="destination-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ destination.hero_image }}');">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8" data-aos="fade-up">
+                <h1 class="hero-title text-white">{{ destination.name }}</h1>
+                <p class="hero-subtitle text-white">{{ destination.description }}</p>
+                <div class="hero-highlights mt-4">
+                    {% for highlight in destination.highlights %}
+                    <span class="highlight-badge">{{ highlight }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="destination-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content-block" data-aos="fade-up">
+                    <h2 class="content-title">Explore Karnataka's Royal Heritage</h2>
+                    <p class="content-text">
+                        Karnataka, the Land of Palaces, offers an incredible journey through India's royal past and 
+                        modern present. From the opulent Mysore Palace to the ancient ruins of Hampi, from the 
+                        cosmopolitan city of Bangalore to the aromatic coffee plantations of Coorg, Karnataka 
+                        presents a diverse tapestry of experiences.
+                    </p>
+                    <p class="content-text">
+                        The state is renowned for its architectural marvels, including UNESCO World Heritage Sites, 
+                        magnificent temples, and grand palaces. Whether you're interested in history, culture, 
+                        nature, or modern urban experiences, Karnataka has something special to offer every traveler.
+                    </p>
+                </div>
+                
+                <div class="content-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="content-subtitle">Top Experiences in Karnataka</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <i class="fas fa-crown text-primary"></i>
+                            <div>
+                                <h5>Mysore Palace</h5>
+                                <p>Marvel at the grandeur of one of India's most magnificent royal palaces.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-landmark text-primary"></i>
+                            <div>
+                                <h5>Hampi Ruins</h5>
+                                <p>Explore the UNESCO World Heritage Site with ancient temples and royal complexes.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-city text-primary"></i>
+                            <div>
+                                <h5>Bangalore Gardens</h5>
+                                <p>Experience the Garden City's beautiful parks, museums, and modern attractions.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-coffee text-primary"></i>
+                            <div>
+                                <h5>Coffee Plantations</h5>
+                                <p>Visit aromatic coffee estates in Coorg and learn about India's coffee culture.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="info-card" data-aos="fade-left">
+                        <h4 class="info-title">Quick Facts</h4>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Best Time to Visit</span>
+                                <span class="info-value">October - March</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <span class="info-label">Average Temperature</span>
+                                <span class="info-value">20°C - 30°C</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <span class="info-label">Languages</span>
+                                <span class="info-value">Kannada, English</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <span class="info-label">Currency</span>
+                                <span class="info-value">Indian Rupee (₹)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card" data-aos="fade-left" data-aos-delay="200">
+                        <h5 class="cta-title">Plan Your Karnataka Journey</h5>
+                        <p class="cta-text">Ready to explore the royal heritage and modern marvels of Karnataka? Let us create your perfect itinerary.</p>
+                        <a href="/contact" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="destination-gallery">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Karnataka Gallery</h2>
+            <p class="section-subtitle">Witness the royal heritage and modern beauty of Karnataka</p>
+        </div>
+        
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+            {% for image in destination.gallery %}
+            <div class="gallery-item">
+                <a href="{{ image }}" class="gallery-link" data-gallery="karnataka-gallery">
+                    <img src="{{ image }}" alt="Karnataka Image {{ loop.index }}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false
+    });
+</script>
+{% endblock %}

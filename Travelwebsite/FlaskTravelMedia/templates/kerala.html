@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }} - South India Explorer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="destination-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ destination.hero_image }}');">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8" data-aos="fade-up">
+                <h1 class="hero-title text-white">{{ destination.name }}</h1>
+                <p class="hero-subtitle text-white">{{ destination.description }}</p>
+                <div class="hero-highlights mt-4">
+                    {% for highlight in destination.highlights %}
+                    <span class="highlight-badge">{{ highlight }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="destination-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content-block" data-aos="fade-up">
+                    <h2 class="content-title">Experience Kerala's Natural Beauty</h2>
+                    <p class="content-text">
+                        Kerala, aptly called "God's Own Country," is a tropical paradise blessed with serene backwaters, 
+                        misty hill stations, pristine beaches, and lush green landscapes. The state offers a perfect 
+                        blend of natural beauty and cultural richness that leaves every visitor mesmerized.
+                    </p>
+                    <p class="content-text">
+                        From the tranquil backwaters of Alleppey to the spice gardens of Munnar, from the pristine 
+                        beaches of Kovalam to the wildlife sanctuaries of Thekkady, Kerala presents a diverse 
+                        tapestry of experiences that cater to every type of traveler.
+                    </p>
+                </div>
+                
+                <div class="content-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="content-subtitle">Top Experiences in Kerala</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <i class="fas fa-ship text-primary"></i>
+                            <div>
+                                <h5>Backwater Cruises</h5>
+                                <p>Glide through the serene backwaters on a traditional houseboat and witness rural Kerala life.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-mountain text-primary"></i>
+                            <div>
+                                <h5>Hill Station Retreats</h5>
+                                <p>Escape to the cool climate of Munnar and enjoy tea plantations and misty mountains.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-spa text-primary"></i>
+                            <div>
+                                <h5>Ayurveda Treatments</h5>
+                                <p>Rejuvenate your body and soul with authentic Ayurvedic treatments and therapies.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-utensils text-primary"></i>
+                            <div>
+                                <h5>Culinary Delights</h5>
+                                <p>Savor the flavors of Kerala cuisine with fresh seafood, coconut-based curries, and spices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="info-card" data-aos="fade-left">
+                        <h4 class="info-title">Quick Facts</h4>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Best Time to Visit</span>
+                                <span class="info-value">October - March</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <span class="info-label">Average Temperature</span>
+                                <span class="info-value">23°C - 32°C</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <span class="info-label">Languages</span>
+                                <span class="info-value">Malayalam, English</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <span class="info-label">Currency</span>
+                                <span class="info-value">Indian Rupee (₹)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card" data-aos="fade-left" data-aos-delay="200">
+                        <h5 class="cta-title">Plan Your Kerala Trip</h5>
+                        <p class="cta-text">Ready to experience the magic of Kerala? Let our experts help you plan the perfect itinerary.</p>
+                        <a href="/contact" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="destination-gallery">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Kerala Gallery</h2>
+            <p class="section-subtitle">Discover the visual beauty of God's Own Country</p>
+        </div>
+        
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+            {% for image in destination.gallery %}
+            <div class="gallery-item">
+                <a href="{{ image }}" class="gallery-link" data-gallery="kerala-gallery">
+                    <img src="{{ image }}" alt="Kerala Image {{ loop.index }}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false
+    });
+</script>
+{% endblock %}

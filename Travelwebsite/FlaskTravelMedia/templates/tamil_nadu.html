@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }} - South India Explorer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="destination-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ destination.hero_image }}');">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8" data-aos="fade-up">
+                <h1 class="hero-title text-white">{{ destination.name }}</h1>
+                <p class="hero-subtitle text-white">{{ destination.description }}</p>
+                <div class="hero-highlights mt-4">
+                    {% for highlight in destination.highlights %}
+                    <span class="highlight-badge">{{ highlight }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="destination-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content-block" data-aos="fade-up">
+                    <h2 class="content-title">Discover Tamil Nadu's Temple Heritage</h2>
+                    <p class="content-text">
+                        Tamil Nadu, the Land of Temples, is a treasure trove of ancient architecture, classical arts, 
+                        and rich cultural traditions. From the magnificent Dravidian temples of Madurai and Thanjavur 
+                        to the pristine beaches of Chennai and Mahabalipuram, the state offers an immersive journey 
+                        through South India's spiritual and cultural heritage.
+                    </p>
+                    <p class="content-text">
+                        The state is home to some of India's most spectacular temple architecture, classical dance forms 
+                        like Bharatanatyam, and ancient traditions that have been preserved for centuries. Whether you're 
+                        exploring the towering gopurams of ancient temples or relaxing on the Marina Beach, Tamil Nadu 
+                        provides an authentic South Indian experience.
+                    </p>
+                </div>
+                
+                <div class="content-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="content-subtitle">Top Experiences in Tamil Nadu</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <i class="fas fa-place-of-worship text-primary"></i>
+                            <div>
+                                <h5>Ancient Temples</h5>
+                                <p>Visit magnificent Dravidian temples like Meenakshi Temple and Brihadeshwara Temple.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-wave-square text-primary"></i>
+                            <div>
+                                <h5>Marina Beach</h5>
+                                <p>Stroll along one of the world's longest urban beaches in the heart of Chennai.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-theater-masks text-primary"></i>
+                            <div>
+                                <h5>Classical Dance</h5>
+                                <p>Experience the elegance of Bharatanatyam and other classical South Indian art forms.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-building text-primary"></i>
+                            <div>
+                                <h5>Temple Architecture</h5>
+                                <p>Marvel at intricate stone carvings and towering gopurams of ancient temples.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="info-card" data-aos="fade-left">
+                        <h4 class="info-title">Quick Facts</h4>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Best Time to Visit</span>
+                                <span class="info-value">November - February</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <span class="info-label">Average Temperature</span>
+                                <span class="info-value">24°C - 35°C</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <span class="info-label">Languages</span>
+                                <span class="info-value">Tamil, English</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <span class="info-label">Currency</span>
+                                <span class="info-value">Indian Rupee (₹)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card" data-aos="fade-left" data-aos-delay="200">
+                        <h5 class="cta-title">Plan Your Tamil Nadu Tour</h5>
+                        <p class="cta-text">Ready to explore the ancient temples and cultural heritage of Tamil Nadu? Let us design your spiritual journey.</p>
+                        <a href="/contact" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="destination-gallery">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Tamil Nadu Gallery</h2>
+            <p class="section-subtitle">Explore the temples, beaches, and cultural heritage</p>
+        </div>
+        
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+            {% for image in destination.gallery %}
+            <div class="gallery-item">
+                <a href="{{ image }}" class="gallery-link" data-gallery="tamilnadu-gallery">
+                    <img src="{{ image }}" alt="Tamil Nadu Image {{ loop.index }}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false
+    });
+</script>
+{% endblock %}
