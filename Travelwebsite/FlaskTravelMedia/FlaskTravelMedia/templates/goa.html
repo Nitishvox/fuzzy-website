@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }} - South India Explorer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="destination-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ destination.hero_image }}');">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8" data-aos="fade-up">
+                <h1 class="hero-title text-white">{{ destination.name }}</h1>
+                <p class="hero-subtitle text-white">{{ destination.description }}</p>
+                <div class="hero-highlights mt-4">
+                    {% for highlight in destination.highlights %}
+                    <span class="highlight-badge">{{ highlight }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="destination-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content-block" data-aos="fade-up">
+                    <h2 class="content-title">Discover Goa's Coastal Paradise</h2>
+                    <p class="content-text">
+                        Goa, India's smallest state, packs a powerful punch with its stunning coastline, vibrant culture, 
+                        and Portuguese colonial charm. From the golden sands of its beaches to the historic churches 
+                        of Old Goa, this coastal paradise offers the perfect blend of relaxation and adventure.
+                    </p>
+                    <p class="content-text">
+                        Whether you're looking to party on the beaches of North Goa, explore the Portuguese architecture 
+                        in Panaji, or enjoy water sports along the coast, Goa provides an unforgettable tropical experience 
+                        that attracts millions of visitors from around the world.
+                    </p>
+                </div>
+                
+                <div class="content-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="content-subtitle">Top Experiences in Goa</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <i class="fas fa-umbrella-beach text-primary"></i>
+                            <div>
+                                <h5>Golden Beaches</h5>
+                                <p>Relax on pristine beaches like Baga, Calangute, and Anjuna with their golden sands.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-water text-primary"></i>
+                            <div>
+                                <h5>Water Sports</h5>
+                                <p>Experience thrilling water activities including parasailing, jet skiing, and scuba diving.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-church text-primary"></i>
+                            <div>
+                                <h5>Colonial Heritage</h5>
+                                <p>Explore beautiful Portuguese churches, colonial buildings, and historic Old Goa.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <i class="fas fa-cocktail text-primary"></i>
+                            <div>
+                                <h5>Beach Shacks</h5>
+                                <p>Enjoy fresh seafood and tropical drinks at charming beachside shacks and cafes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="info-card" data-aos="fade-left">
+                        <h4 class="info-title">Quick Facts</h4>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Best Time to Visit</span>
+                                <span class="info-value">November - February</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <span class="info-label">Average Temperature</span>
+                                <span class="info-value">25°C - 32°C</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <span class="info-label">Languages</span>
+                                <span class="info-value">Konkani, English, Portuguese</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <span class="info-label">Currency</span>
+                                <span class="info-value">Indian Rupee (₹)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card" data-aos="fade-left" data-aos-delay="200">
+                        <h5 class="cta-title">Plan Your Goa Getaway</h5>
+                        <p class="cta-text">Ready to experience the beach paradise of Goa? Let us help you plan the perfect coastal vacation.</p>
+                        <a href="/contact" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Get Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="destination-gallery">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Goa Gallery</h2>
+            <p class="section-subtitle">Explore the stunning beaches and heritage of Goa</p>
+        </div>
+        
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+            {% for image in destination.gallery %}
+            <div class="gallery-item">
+                <a href="{{ image }}" class="gallery-link" data-gallery="goa-gallery">
+                    <img src="{{ image }}" alt="Goa Image {{ loop.index }}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false
+    });
+</script>
+{% endblock %}

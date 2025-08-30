@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Discover South India - Premium Travel Experience{% endblock %}</title>
+    <meta name="description" content="{% block description %}Explore the stunning landscapes, rich culture, and vibrant heritage of South India with our premium travel experiences.{% endblock %}">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GLightbox for Image Gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-compass me-2"></i>
+                <span class="brand-text">South India Explorer</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="destinationsDropdown" role="button" data-bs-toggle="dropdown">
+                            Destinations
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/kerala">Kerala</a></li>
+                            <li><a class="dropdown-item" href="/goa">Goa</a></li>
+                            <li><a class="dropdown-item" href="/karnataka">Karnataka</a></li>
+                            <li><a class="dropdown-item" href="/tamil_nadu">Tamil Nadu</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-heading">South India Explorer</h5>
+                    <p class="footer-text">Discover the incredible beauty, rich culture, and unforgettable experiences that South India has to offer.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-heading">Destinations</h6>
+                    <ul class="footer-links">
+                        <li><a href="/kerala">Kerala</a></li>
+                        <li><a href="/goa">Goa</a></li>
+                        <li><a href="/karnataka">Karnataka</a></li>
+                        <li><a href="/tamil_nadu">Tamil Nadu</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-heading">Experiences</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Backwater Cruises</a></li>
+                        <li><a href="#">Temple Tours</a></li>
+                        <li><a href="#">Beach Holidays</a></li>
+                        <li><a href="#">Cultural Tours</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6 class="footer-heading">Contact Info</h6>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone me-2"></i>+91 98765 43210</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@southindiaexplorer.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2025 South India Explorer. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn-back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

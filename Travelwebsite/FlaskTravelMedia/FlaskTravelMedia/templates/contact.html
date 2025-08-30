@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - South India Explorer{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-50">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+                <h1 class="hero-title">Plan Your South India Adventure</h1>
+                <p class="hero-subtitle">Get in touch with our travel experts to create your perfect South Indian journey</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-section">
+    <div class="container">
+        {% if success %}
+        <div class="alert alert-success text-center" role="alert" data-aos="fade-up">
+            <i class="fas fa-check-circle me-2"></i>
+            Thank you for your message! Our travel experts will get back to you within 24 hours.
+        </div>
+        {% endif %}
+        
+        <div class="row">
+            <div class="col-lg-8" data-aos="fade-right">
+                <div class="contact-form-container">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <p class="form-subtitle">Fill out the form below and we'll get back to you with a customized travel plan for your South India adventure.</p>
+                    
+                    <form method="POST" class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="destination" class="form-label">Preferred Destination</label>
+                                <select class="form-control" id="destination" name="destination">
+                                    <option value="">Select a destination</option>
+                                    <option value="kerala">Kerala</option>
+                                    <option value="goa">Goa</option>
+                                    <option value="karnataka">Karnataka</option>
+                                    <option value="tamil_nadu">Tamil Nadu</option>
+                                    <option value="multiple">Multiple Destinations</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="travel_date" class="form-label">Preferred Travel Date</label>
+                                <input type="date" class="form-control" id="travel_date" name="travel_date">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="budget" class="form-label">Budget Range</label>
+                                <select class="form-control" id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="budget">Budget (Under ₹50,000)</option>
+                                    <option value="mid-range">Mid-Range (₹50,000 - ₹1,00,000)</option>
+                                    <option value="luxury">Luxury (₹1,00,000+)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Tell us about your dream trip *</label>
+                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tell us about your travel interests, group size, special requirements, or any specific experiences you're looking for..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-lg-4" data-aos="fade-left">
+                <div class="contact-info">
+                    <h3 class="info-title">Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Visit Our Office</h5>
+                            <p>123 Travel Street<br>Mumbai, Maharashtra 400001<br>India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h5>Call Us</h5>
+                            <p>+91 98765 43210<br>+91 87654 32109</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>Email Us</h5>
+                            <p>info@southindiaexplorer.com<br>bookings@southindiaexplorer.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h5>Office Hours</h5>
+                            <p>Monday - Friday: 9:00 AM - 7:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="why-choose-us" data-aos="fade-left" data-aos-delay="200">
+                    <h4>Why Choose Us?</h4>
+                    <div class="feature-item">
+                        <i class="fas fa-star text-warning"></i>
+                        <span>Expert Local Knowledge</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart text-danger"></i>
+                        <span>Personalized Service</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        <span>24/7 Travel Support</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-award text-primary"></i>
+                        <span>Best Price Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about South India travel</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                What's the best time to visit South India?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The best time to visit South India is during the cooler months from October to March. The weather is pleasant with minimal rainfall, making it ideal for sightseeing and outdoor activities.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                How many days do I need for a South India tour?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                For a comprehensive South India tour covering major destinations like Kerala, Goa, Karnataka, and Tamil Nadu, we recommend 10-14 days. However, even 7 days can provide a good taste of 2-3 key destinations.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                What should I pack for South India?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Pack light, breathable cotton clothing, comfortable walking shoes, sunscreen, hat, sunglasses, and a light jacket for hill stations. Don't forget modest clothing for temple visits and swimwear for beaches.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                Is South India safe for solo travelers?
+                            </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, South India is generally safe for solo travelers, including women. The region has a welcoming culture and good tourist infrastructure. However, standard travel precautions are always recommended.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Form validation and enhancement
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact-form');
+        const inputs = form.querySelectorAll('input, textarea, select');
+
+        // Add focus effects
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            // Basic validation is handled by HTML5, but you can add more here
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            // Re-enable after 3 seconds (for demo purposes)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+    });
+</script>
+{% endblock %}
